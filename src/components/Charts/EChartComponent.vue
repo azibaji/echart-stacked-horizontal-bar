@@ -54,8 +54,6 @@ const props = defineProps({
     default: "",
   },
 });
-
-// Sample yAxis data, replace with actual data
 const yAxisData = [
   "BEANR",
   "AUBNE",
@@ -71,11 +69,10 @@ const yAxisData = [
   "test7",
 ];
 
-// Calculate chart height based on the number of bars
 const chartHeight = computed(() => {
-  const baseHeight = 330; // Base height for up to 10 bars
+  const baseHeight = 330;
   const barCount = yAxisData.length;
-  const additionalHeight = (barCount - 10) * 30; // Adjust the multiplier to fit your needs
+  const additionalHeight = (barCount - 10) * 30; 
   return barCount > 10 ? baseHeight + additionalHeight : baseHeight;
 });
 
@@ -108,26 +105,26 @@ onMounted(() => {
       containLabel: true,
     },
     xAxis: {
-      name: "Horizontal Axis Label", // Add horizontal axis label
+      name: "Horizontal Axis Label", 
       nameLocation: "center",
       nameTextStyle: {
         fontSize: 14,
-        padding: [10, 0, 0, 0], // Adjusts the position of the label
+        padding: [10, 0, 0, 0],
       },
       axisLine: {
-        show: false, // Remove x-axis line
+        show: false,
       },
       axisTick: {
-        show: false, // Remove x-axis ticks
+        show: false, 
       },
       splitLine: {
-        show: false, // Remove x-axis grid lines
+        show: false,
       },
       axisLabel: {
-        show: true, // Show y-axis labels
+        show: true,
         margin: 20,
         formatter: function () {
-          return ""; // Hide x-axis values
+          return ""; 
         },
       },
     },
@@ -138,21 +135,21 @@ onMounted(() => {
       data: yAxisData,
       nameTextStyle: {
         fontSize: 14,
-        padding: [0, 0, 70, 0], // Adjust the padding to create space
+        padding: [0, 0, 70, 0],
       },
       axisLine: {
-        show: false, // Remove y-axis line
+        show: false,
       },
       axisTick: {
-        show: false, // Remove y-axis ticks
+        show: false, 
       },
       splitLine: {
         show: false,
-        margin: 20, // Remove y-axis grid lines
+        margin: 20, 
       },
       axisLabel: {
-        show: true, // Show y-axis labels
-        margin: 10, // Increase margin to prevent overlap with bar labels
+        show: true,
+        margin: 10,
       },
     },
     series: [
@@ -173,7 +170,7 @@ onMounted(() => {
         name: "Exceeded free-time period",
         type: "bar",
         stack: "total",
-        data: [5, 20, 36, 10, 10, 20, 30, 40, 10, 15, 25, 5], // Sample data, replace with actual data
+        data: [5, 20, 36, 10, 10, 20, 30, 40, 10, 15, 25, 5],
         label: {
           show: true,
           position: "inside",
@@ -184,11 +181,11 @@ onMounted(() => {
           fontWeight: "bold",
         },
         itemStyle: {
-          color: "#155790", // Blue color for the main series
-          borderRadius: [2, 2, 2, 2], // Rounded corners
+          color: "#155790",
+          borderRadius: [2, 2, 2, 2],
         },
-        barWidth: 20, // Increase the width (height for horizontal bars)
-        z: 2, // Set a higher z-index to place it on top of the background
+        barWidth: 20,
+        z: 2, 
       },
       {
         name: "Gap",
@@ -197,8 +194,8 @@ onMounted(() => {
         itemStyle: {
           color: "transparent",
         },
-        data: Array(yAxisData.length).fill(2), // Sample data, replace with actual data
-        barWidth: "10%", // Width of the gap
+        data: Array(yAxisData.length).fill(2),
+        barWidth: "10%", 
         barGap: "0%",
         tooltip: {
           show: false,
@@ -210,7 +207,7 @@ onMounted(() => {
         name: "Remaining free time days less or equal to 5",
         type: "bar",
         stack: "total",
-        data: [15, 25, 16, 20, 30, 10, 20, 5, 10, 15, 25, 5], // Sample data, replace with actual data
+        data: [15, 25, 16, 20, 30, 10, 20, 5, 10, 15, 25, 5],
         label: {
           show: true,
           position: "inside",
@@ -224,11 +221,11 @@ onMounted(() => {
           color: "#6bc85d",
           borderRadius: [2, 2, 2, 2],
         },
-        barWidth: 20, // Increase the width (height for horizontal bars)
-        z: 2, // Set a higher z-index to place it on top of the background
+        barWidth: 20,
+        z: 2, 
       },
     ],
-    barGap: "-100%", // Overlap the bars perfectly
+    barGap: "-100%",
     barCategoryGap: "30%",
   });
   myChart.on("finished", addLegendClass);
