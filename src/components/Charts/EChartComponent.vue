@@ -60,26 +60,17 @@ const props = defineProps({
   firstParametr: {
     type: Array,
     default: null
+  },
+  yAxisData: {
+    type: Array,
+    default: null
   }
 });
-const yAxisData = [
-  "BEANR",
-  "AUBNE",
-  "ESBCN",
-  "FRLEH",
-  "PHBTG",
-  "test1",
-  "test2",
-  "test3",
-  "test4",
-  "test5",
-  "test6",
-  "test7",
-];
+
 
 const chartHeight = computed(() => {
   const baseHeight = 330;
-  const barCount = yAxisData.length;
+  const barCount = props.yAxisData.length;
   const additionalHeight = (barCount - 10) * 30; 
   return barCount > 10 ? baseHeight + additionalHeight : baseHeight;
 });
@@ -140,7 +131,7 @@ onMounted(() => {
       name: "Vertical Axis Label",
       nameLocation: "middle",
       nameRotate: 90,
-      data: yAxisData,
+      data: props.yAxisData,
       nameTextStyle: {
         fontSize: 14,
         padding: [0, 0, 70, 0],
@@ -163,7 +154,7 @@ onMounted(() => {
     series: [
       {
         type: "bar",
-        data: Array(yAxisData.length).fill(100),
+        data: Array(props.yAxisData.length).fill(100),
         itemStyle: {
           color: "#fafbfe",
         },
@@ -202,7 +193,7 @@ onMounted(() => {
         itemStyle: {
           color: "transparent",
         },
-        data: Array(yAxisData.length).fill(2),
+        data: Array(props.yAxisData.length).fill(2),
         barWidth: "10%", 
         barGap: "0%",
         tooltip: {

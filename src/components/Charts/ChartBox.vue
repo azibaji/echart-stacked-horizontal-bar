@@ -1,6 +1,11 @@
 <template>
   <div class="border border-gray-200 bg-white rounded-lg py-4">
-    <EChartComponent :title="title" :secondParametr="secondParametr" :firstParametr="firstParametr" />
+    <EChartComponent
+      :title="title"
+      :secondParametr="secondParametr"
+      :firstParametr="firstParametr"
+      :yAxisData="yAxisData"
+    />
   </div>
 </template>
 <script setup>
@@ -16,6 +21,10 @@ defineProps({
     default: null
   },
   secondParametr: {
+    type: Array,
+    default: null
+  },
+  yAxisData: {
     type: Array,
     default: null
   }
