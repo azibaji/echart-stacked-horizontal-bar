@@ -53,6 +53,14 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  secondParametr: {
+    type: Array,
+    default: null
+  },
+  firstParametr: {
+    type: Array,
+    default: null
+  }
 });
 const yAxisData = [
   "BEANR",
@@ -170,7 +178,7 @@ onMounted(() => {
         name: "Exceeded free-time period",
         type: "bar",
         stack: "total",
-        data: [5, 20, 36, 10, 10, 20, 30, 40, 10, 15, 25, 5],
+        data: props.firstParametr,
         label: {
           show: true,
           position: "inside",
@@ -207,7 +215,7 @@ onMounted(() => {
         name: "Remaining free time days less or equal to 5",
         type: "bar",
         stack: "total",
-        data: [15, 25, 16, 20, 30, 10, 20, 5, 10, 15, 25, 5],
+        data:props.secondParametr,
         label: {
           show: true,
           position: "inside",

@@ -1,6 +1,6 @@
 <template>
   <div class="border border-gray-200 bg-white rounded-lg py-4">
-    <EChartComponent :title="title" />
+    <EChartComponent :title="title" :secondParametr="secondParametr" :firstParametr="firstParametr" />
   </div>
 </template>
 <script setup>
@@ -11,6 +11,14 @@ defineProps({
     type: String,
     default: "",
   },
+  firstParametr: {
+    type: Array,
+    default: null
+  },
+  secondParametr: {
+    type: Array,
+    default: null
+  }
 });
 </script>
 
